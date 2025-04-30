@@ -14,7 +14,7 @@ See on käsurea tööriist, mis võimaldab **failide ümbernimetamist MuIS-i met
 
 ## 🛠 Nõuded
 
-- Python 3.9+
+- Python 3.9+ (kui kasutada lähtekoodi)
 - Internetiühendus (MuIS API jaoks)
 - [ExifTool](https://exiftool.org/) (kui soovid EXIF-i uuendamist)
 - `requests` moodul Pythonis (paigalda `pip install requests`)
@@ -23,7 +23,13 @@ See on käsurea tööriist, mis võimaldab **failide ümbernimetamist MuIS-i met
 
 ## ⚙️ Kasutamine
 
-### 1. Tööriista käivitamine
+### 1. Tööriista käivitamine kasutades lähtekoodi
 
 ```bash
-python3 renamer.py
+python3.9 muis-rename.py
+```
+### 2. Tööriista käivitamine käsurealt
+
+```bash
+muis-rename
+```
