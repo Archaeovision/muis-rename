@@ -33,3 +33,37 @@ python3.9 muis-rename.py
 ```bash
 muis-rename
 ```
+
+## Parameetrid
+```
+-t, --test	Kuivkäivitus – failide nimesid ei muudeta, ainult logitakse
+-e, --exiftool	Luba EXIF-andmete uuendamine Exiftool abil
+```
+
+## 📁 Sisendfailide eeldused
+
+Failinimed peavad sisaldama MuIS ID-d ja vajadusel järjenumbreid, näiteks:
+
+- 123456.jpg
+- 123456_1.jpg
+- 123456_1_1.jpg
+
+Tööriist eraldab ID ja säilitab ülejäänud suffixi.
+
+## 🛡 Kaitsemehhanismid
+Faili ei nimetata ümber, kui sihtfail juba eksisteerib.
+
+Failid, mis algavad punktiga (.DS_Store, jms), jäetakse vahele.
+
+Küsitakse kinnitust enne töö alustamist
+
+## 📄 Logimine
+Logifail luuakse igal käivitamisel töökausta: `failide_logi_YYYYMMDD_HHMMSS.txt`
+Sinna salvestatakse info iga töödeldud faili kohta.
+
+## 🧪 EXIF/IPTC andmete täitmine (valikuline)
+Kui kasutad -e lippu ja süsteemis on *exiftool*, täidetakse järgmised IPTC-väljad:
+
+- Source: MuIS ID
+- ObjectName: Pealkiri (kui olemas)
+
