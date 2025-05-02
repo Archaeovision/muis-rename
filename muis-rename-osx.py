@@ -47,19 +47,24 @@ parser.add_argument("-t", "--test", action="store_true", help="Lülita sisse kui
 parser.add_argument("-e", "--exiftool", action="store_true", help="Luba IPTC metaandmete kirjutamine Exiftooli abil.")
 args = parser.parse_args()
 
-# Get directory from user
-dirName = input("Kaust kus asuvad failid: ").strip().strip('"').strip("'").rstrip()
+# Get directory from user (supports drag & drop)
+dirName = input("Kaust kus asuvad failid (võid kausta lohistada siia): ").strip()
+dirName = dirName.replace('\\', '')  # Remove backslashes added by Terminal
+dirName = dirName.strip('"').strip("'").strip()  # Remove extra quotes and whitespace
+dirName = os.path.expanduser(dirName)  # Expand ~
+dirName = os.path.abspath(dirName)     # Normalize path
 
 # Validate directory
 if not os.path.isdir(dirName):
     print(f"Directory '{dirName}' does not exist.")
     sys.exit()
 
-# User confirmation before continuing
-confirmation = input(f"{color.YELLOW}Kas oled teinud koopia oma failidest? Kas jätkame? (jah/ei): {color.END}").strip().lower()
-if confirmation != "jah":
-    print("Katkestatud kasutaja poolt.")
-    sys.exit()
+# Ask confirmation only if not in test (dry-run) mode
+if not args.test:
+    confirmation = input(f"{color.YELLOW}Kas oled teinud koopia oma failidest? Kas jätkame? (jah/ei): {color.END}").strip().lower()
+    if confirmation != "jah":
+        print("Katkestatud kasutaja poolt.")
+        sys.exit()
 
 # Prepare log file
 log_file_path = os.path.join(dirName, f"failide_logi_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")

@@ -1,5 +1,5 @@
 ('/Users/hembo/Dev/MuIS-arendused/Failide '
- 'ümbernimetamine/muis-id-museaal-nr/build/muis-rename/PYZ-00.pyz',
+ 'ümbernimetamine/muis-rename/build/muis-rename/PYZ-00.pyz',
  [('OpenSSL',
    '/usr/local/lib/python3.9/site-packages/OpenSSL/__init__.py',
    'PYMODULE'),
