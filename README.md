@@ -18,6 +18,7 @@ See on käsurea tööriist, mis võimaldab **failide ümbernimetamist MuIS-i met
 - Internetiühendus (MuIS API jaoks)
 - [ExifTool](https://exiftool.org/) (kui soovid EXIF-i uuendamist)
 - `requests` moodul Pythonis (paigalda `pip install requests`)
+- `pyinstaller` kui soov ise kompileerida lähtekoodi
 
 ---
 
@@ -33,11 +34,17 @@ python3.9 muis-rename.py
 ```bash
 muis-rename
 ```
+### Lähtekoodi kompileerimine
+```bash
+pyinstaller --onefile --name muis-rename muis-rename-osx.py
+```
 
 ## Parameetrid
 ```
--t, --test	Kuivkäivitus – failide nimesid ei muudeta, ainult logitakse
--e, --exiftool	Luba EXIF-andmete uuendamine Exiftool abil
+  -h, --help      Näitab abiteksti
+  -t, --test      Lülitab sisse kuivkäivituse režiim (faile ei nimetata ümber kui luuakse logi).
+  -e, --exiftool  Luba IPTC metaandmete kirjutamine Exiftooli abil.
+  -c, --check     Kontrolli MuIS ID põhjal seotud failinimesid MuISi Digihoidlas
 ```
 
 ## 📁 Sisendfailide eeldused
