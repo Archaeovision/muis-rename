@@ -9,6 +9,7 @@ See on käsurea tööriist, mis võimaldab **failide ümbernimetamist MuIS-i met
 - Salvestada tegevused logifaili.
 - Soovi korral uuendada EXIF-andmeid IPTC-väljades.
 - Võimalus testida "kuivkäivituse" režiimis ilma reaalse ümbernimetamiseta.
+- Kontrollida failide olemasolu MuISi Digihoidlas
 
 ---
 
