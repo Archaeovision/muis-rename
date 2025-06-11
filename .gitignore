@@ -3,7 +3,6 @@
 
 #build directories
 build/
-dist/
 
 # JetBrains IDE
 .idea/
