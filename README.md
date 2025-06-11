@@ -48,6 +48,20 @@ pyinstaller --onefile --name muis-rename muis-rename-osx.py
   -c, --check     Kontrolli MuIS ID põhjal seotud failinimesid MuISi Digihoidlas
 ```
 
+## Kompileeri koodist
+
+### Mac OS
+```
+pip install pyinstaller
+pyinstaller --onefile muis_rename.py
+```
+
+### Windows
+```
+pip install pyinstaller
+pyinstaller --onefile muis_rename.py
+```
+
 ## 📁 Sisendfailide eeldused
 
 Failinimed peavad sisaldama MuIS ID-d ja vajadusel järjenumbreid, näiteks:
